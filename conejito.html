@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de sesión con icono</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .header {
+            background-color: #007BFF;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: white;
+        }
+
+        .header .icon {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .header .icon img {
+            width: 25px;
+            height: 25px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            flex-direction: column;
+        }
+
+        .profile-container {
+            display: none;
+            text-align: center;
+        }
+
+        .profile-container img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .profile-container h2 {
+            margin: 10px 0;
+        }
+
+        input[type="text"], input[type="password"] {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 200px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            width: 220px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Header con icono de usuario -->
+<div class="header">
+    <div class="icon" id="user-icon" onclick="showLogin()">
+        <img src="https://www.w3schools.com/w3images/avatar2.png" alt="icono">
+    </div>
+</div>
+
+<!-- Formulario de login -->
+<div class="container" id="login-container">
+    <h2>Iniciar sesión</h2>
+    <form id="login-form">
+        <input type="text" id="username" placeholder="Usuario" required>
+        <input type="password" id="password" placeholder="Contraseña" required>
+        <button type="submit">Iniciar sesión</button>
+    </form>
+</div>
+
+<!-- Contenedor de perfil del usuario -->
+<div class="profile-container" id="profile-container">
+    <img src="https://www.w3schools.com/w3images/avatar2.png" alt="Usuario" id="profile-image">
+    <h2 id="profile-name">Nombre del Usuario</h2>
+    <button id="logout-btn" onclick="logout()">Cerrar sesión</button>
+</div>
+
+<script>
+    // Elementos del DOM
+    const loginContainer = document.getElementById('login-container');
+    const profileContainer = document.getElementById('profile-container');
+    const userIcon = document.getElementById('user-icon');
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+    const profileImage = document.getElementById('profile-image');
+    const profileName = document.getElementById('profile-name');
+    const logoutBtn = document.getElementById('logout-btn');
+    
+    // Usuarios simulados
+    const users = {
+        'usuario123': {
+            password: 'contraseña123',
+            name: 'Juan Pérez',
+            image: 'https://www.w3schools.com/w3images/avatar5.png'  // Imagen del usuario
+        },
+        'usuario456': {
+            password: 'contraseña456',
+            name: 'Ana García',
+            image: 'https://www.w3schools.com/w3images/avatar6.png'  // Imagen del usuario
+        }
+    };
+
+    // Función para mostrar el formulario de inicio de sesión
+    function showLogin() {
+        loginContainer.classList.remove('hidden');
+        profileContainer.classList.add('hidden');
+    }
+
+    // Manejo del inicio de sesión
+    document.getElementById('login-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const username = usernameInput.value;
+        const password = passwordInput.value;
+
+        // Verificar si el usuario y la contraseña son correctos
+        if (users[username] && users[username].password === password) {
+            // Cambiar el icono por la imagen del usuario y mostrar su nombre
+            userIcon.innerHTML = `<img src="${users[username].image}" alt="icono">`;
+            loginContainer.classList.add('hidden');
+            profileContainer.classList.remove('hidden');
+            profileImage.src = users[username].image;
+            profileName.textContent = users[username].name;
+        } else {
+            alert('Usuario o contraseña incorrectos');
+        }
+    });
+
+    // Función para cerrar sesión
+    function logout() {
+        loginContainer.classList.remove('hidden');
+        profileContainer.classList.add('hidden');
+        usernameInput.value = '';
+        passwordInput.value = '';
+        userIcon.innerHTML = `<img src="https://www.w3schools.com/w3images/avatar2.png" alt="icono">`;
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Productos</title>
+    <link rel="stylesheet" href="CSS/cabeceras.css">
+    <link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos básicos */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .product-item {
+            display: inline-block;
+            width: 150px;
+            height: 150px;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #fff;
+            text-align: center;
+            vertical-align: top;
+            cursor: pointer; /* Para mostrar que es un botón */
+            transition: transform 0.2s ease;
+        }
+
+        .product-item:hover {
+            transform: scale(1.05); /* Agranda ligeramente el botón cuando se pasa el ratón */
+        }
+
+        .product-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .item-details h3 {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            margin: 20px auto;
+            max-width: 600px;
+        }
+
+        .search-bar input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            flex: 1;
+            margin-right: 10px;
+        }
+
+        .search-bar button {
+            padding: 10px 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff6600;
+            color: white;
+            cursor: pointer;
+        }
+
+        .search-bar button:hover {
+            background-color: #ff4500;
+        }
+
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            gap: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="menu">
+                <ul>
+                    <li><a href="tienda.html">Tienda</a></li>
+                    <li><a href="catalogo.html">Catálogo</a></li>
+                    <li><a href="ticket.php">tickets</a></li>
+                    <li><a href="ayuda.html">Ayuda</a></li>
+                </ul>
+            </div>
+            <div class="logo">
+                <img src="Imagenes/logo.png">
+                <div class="company-name">
+                    <p class="name">Four/Twenty</p>
+                    <p class="corporation">CORPORATION</p>
+                </div>
+            </div>
+            <div class="user-actions">
+                <a href="inicio_sesion.php"><img src="Imagenes/icon.png" alt="Login" class="icon"></a>
+                <a href="carrito.html"><img src="Imagenes/carrito.png" alt="Carrito" class="icon"></a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <h1>Galería de Productos</h1>
+
+        <!-- Barra de búsqueda -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Buscar productos..." />
+            <button onclick="filterProducts()">Buscar</button>
+        </div>
+
+        <!-- Productos -->
+        <div id="product-list" class="product-list">
+            <p>Cargando productos...</p>
+        </div>
+    </div>
+
+    <script>
+        let products = [];
+
+        // Función para obtener los productos desde el servidor
+        async function fetchCart() {
+            try {
+                const response = await fetch('tienda_s.php');
+                const data = await response.json();
+                products = data.items;
+                displayProducts(products); // Muestra los productos en la página
+            } catch (error) {
+                console.error('Error al obtener los productos:', error);
+            }
+        }
+
+        // Esta función filtra los productos según el término de búsqueda
+        function filterProducts() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const filteredProducts = products.filter(product => product.nombre.toLowerCase().includes(searchTerm));
+            displayProducts(filteredProducts);
+        }
+
+        // Esta función muestra los productos en la página
+        function displayProducts(productsToDisplay) {
+            const productList = document.getElementById('product-list');
+            productList.innerHTML = ''; // Limpiar productos existentes
+
+            if (productsToDisplay.length > 0) {
+                productsToDisplay.forEach(product => {
+                    const productItem = document.createElement('div');
+                    productItem.classList.add('product-item');
+
+                    productItem.innerHTML = `
+    <a href="producto.php?id=${product.id}">
+        <img src="${product.imagen}" alt="${product.nombre}">
+        <div class="item-details">
+            <h3>${product.nombre}</h3>
+        </div>
+    </a>
+`;
+
+
+                    productList.appendChild(productItem);
+                });
+            } else {
+                productList.innerHTML = '<p>No se encontraron productos que coincidan con tu búsqueda.</p>';
+            }
+        }
+
+        // Inicializar la página cargando los productos del servidor
+        fetchCart();
+    </script>
+</body>
+</html>

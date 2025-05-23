@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayuda - Cómo Comprar en Four/Twenty</title>
+    <link rel="stylesheet" href="CSS/ayuda.css">
+    <link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
+    <style>
+       /* El contenedor principal debe ser de tipo flexbox para que el pie de página siempre quede al final */
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Hace que el cuerpo ocupe toda la altura de la pantalla */
+    font-family: 'Patua One', cursive;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+/* Hacer que el contenido principal ocupe el espacio disponible */
+.main-content {
+    flex: 1; /* Esto permite que el contenido principal ocupe el espacio restante */
+    width: 80%;
+    margin: 30px auto;
+    background-color: white;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Pie de página ajustado a la parte inferior */
+footer {
+    background-color: #2d3a3b;
+    padding: 15px;
+    color: white;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+        header {
+            background-color: #2d3a3b;
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 36px;
+        }
+
+        .main-content {
+            width: 80%;
+            margin: 30px auto;
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #333;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-left: 40px;
+            position: relative;
+        }
+
+        .step::before {
+            content: counter(step);
+            counter-increment: step;
+            position: absolute;
+            left: 20px;
+            top: 5px;
+            background-color: #2d3a3b;
+            color: white;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            font-weight: bold;
+        }
+
+        .step p {
+            margin-left: 50px;
+            font-size: 18px;
+        }
+
+        .step img {
+            width: 50px;
+            margin-right: 15px;
+        }
+
+        .faq-section {
+            margin-top: 40px;
+        }
+
+        .faq {
+            padding: 15px;
+            background-color: #e9ecef;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        .faq h3 {
+            font-size: 20px;
+            color: #2d3a3b;
+        }
+
+        .faq p {
+            font-size: 16px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Ayuda - Cómo Comprar en Four/Twenty</h1>
+</header>
+
+<div class="main-content">
+    <h2>Guía Paso a Paso para Realizar una Compra</h2>
+    <p>¡Bienvenido a Four/Twenty! Te explicamos paso a paso cómo realizar una compra de manera rápida y segura en nuestro sitio web.</p>
+
+    <div class="step-container">
+        <div class="step">
+            <img src="Imagenes/step1.png" alt="Paso 1">
+            <p><strong>Paso 1:</strong> Explora nuestro catálogo de productos</p>
+        </div>
+
+        <div class="step">
+            <img src="Imagenes/step2.png" alt="Paso 2">
+            <p><strong>Paso 2:</strong> Añade tus productos al carrito de compras</p>
+        </div>
+
+        <div class="step">
+            <img src="Imagenes/step3.png" alt="Paso 3">
+            <p><strong>Paso 3:</strong> Revisa tu carrito y modifica la cantidad si es necesario</p>
+        </div>
+
+        <div class="step">
+            <img src="Imagenes/step4.png" alt="Paso 4">
+            <p><strong>Paso 4:</strong> Procede al pago, elige tu método de pago preferido</p>
+        </div>
+
+        <div class="step">
+            <img src="Imagenes/step5.png" alt="Paso 5">
+            <p><strong>Paso 5:</strong> Confirma tu pedido y espera la confirmación</p>
+        </div>
+    </div>
+
+    <div class="faq-section">
+        <h2>Preguntas Frecuentes</h2>
+
+        <div class="faq">
+            <h3>¿Qué métodos de pago aceptan?</h3>
+            <p>Aceptamos tarjetas de crédito, débito y pagos a través de plataformas como PayPal.</p>
+        </div>
+
+        <div class="faq">
+            <h3>¿Puedo modificar mi pedido después de realizar la compra?</h3>
+            <p>Una vez realizado el pago, no es posible modificar el pedido. Si necesitas hacer algún cambio, por favor contáctanos lo antes posible.</p>
+        </div>
+
+        <div class="faq">
+            <h3>¿Cómo puedo rastrear mi pedido?</h3>
+            <p>Una vez que tu pedido haya sido enviado, recibirás un correo electrónico con el número de seguimiento para que puedas rastrear tu envío.</p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Four/Twenty - Todos los derechos reservados</p>
+</footer>
+
+</body>
+</html>

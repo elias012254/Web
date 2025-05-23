@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catalogo.</title>
+    <link rel="stylesheet" href="CSS/style.css" />
+  </head>
+  <body>
+    <header>
+        <div class="top-bar">
+            <div class="menu">
+                <ul>
+                    <li><a href="tienda.html">Tienda</a></li>
+                    <li><a href="catalogo.html">Catálogo</a></li>
+                   <li><a href="ticket.php">tickets</a></li>
+                    <li><a href="ayuda.html">Ayuda</a></li>
+                </ul>
+            </div>
+            <div class="logo">
+                <img src="Imagenes/logo.png">
+                <div class="company-name">
+                    <p class="name">Four/Twenty</p>
+                    <p class="corporation">CORPORATION</p>
+                </div>
+            </div>
+            <div class="user-actions">
+                <a href="inicio_sesion.html"><img src="Imagenes/icon.png" alt="Login" class="icon"></a>
+                <a href="carrito.html"><img src="Imagenes/carrito.png" alt="Carrito" class="icon"></a>
+            </div>
+        </div>
+    </header>
+    <section class="slider-container">
+      <div class="slider-images">
+        <div class="slider-img active" data-link="cat_vinos.html">
+          <img src="Imagenes/vino.jpg" alt="4" />
+          <h1>VINOS</h1>
+          <div class="details">
+            <h2>Vino</h2>
+            <p>«El vino siembra poesía en los corazones.» Dante Alighieri.</p>
+          </div>
+        </div>
+
+        <div class="slider-img" data-link="cat_teq.html">
+          <img src="Imagenes/tequila.jpg" alt="3" />
+          <h1>TEQUILA</h1>
+          <div class="details">
+            <h2>Tequila</h2>
+            <p>Un tequila al dia es la clave de la alegria.</p>
+          </div>
+        </div>
+
+        
+
+        <div class="slider-img" data-link="cat_whis.html">
+          <img src="Imagenes/whiskey.jpg" alt="5" />
+          <h1>WHISKEY</h1>
+          <div class="details">
+            <h2>Whiskey</h2>
+            <p>Demasiado de algo es malo,pero demasiado de un buen whiskey es apenas suficiente.</p>
+          </div>
+        </div>
+
+        <div class="slider-img" data-link="cat_vod.html">
+          <img src="Imagenes/vodka.png" alt="6" />
+          <h1>VODKA</h1>
+          <div class="details">
+            <h2>Vodka</h2>
+            <p>El Vodka sabe mejor con el corazon roto.</p>
+          </div>
+        </div>
+
+        <div class="slider-img" data-link="cat_ron.html">
+          <img src="Imagenes/ron.jpg" alt="7" />
+          <h1>RON</h1>
+          <div class="details">
+            <h2>Ron</h2>
+            <p>El Ron es la una unica obra de arte que se puede beber.</p>
+          </div>
+        </div>
+
+<div class="slider-img" data-link="cat_cerv.html">
+          <img src="Imagenes/chelas.jpg" alt="7" />
+          <h1>CERVEZA</h1>
+          <div class="details">
+            <h2>Cerveza</h2>
+            <p>El Ron es la una unica obra de arte que se puede beber.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      jQuery(document).ready(function ($) {
+        let clickCount = 0;
+        let clickedElement = null;
+
+        $(".slider-img").on("click", function () {
+          $(".slider-img").removeClass("active");
+          $(this).addClass("active");
+        });
+
+        $(".slider-img").on("dblclick", function (event) {
+          event.preventDefault();
+          if (clickedElement === this) {
+            clickCount++;
+            if (clickCount >= 2) {
+              const link = $(this).data('link');
+              if (link) {
+                window.location.href = link;
+              }
+            }
+          } else {
+            clickCount = 1;
+            clickedElement = this;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

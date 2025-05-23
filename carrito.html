@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            max-width: 1000px;
+            margin: 50px auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .left-section {
+            flex: 0.35;
+            background-color: #8b0000;
+            padding: 20px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .left-section h2 {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            gap: 5%;
+            margin-bottom: 20px;
+        }
+
+        .payment-method {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .payment-method img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: white;
+            padding: 5px;
+        }
+
+        .payment-method span {
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .form-section {
+            display: none;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .form-section input {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .right-section {
+            flex: 0.65;
+            padding: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .cart-item img {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+        }
+
+        .item-details {
+            flex: 1;
+            margin-left: 15px;
+        }
+
+        .item-details h3 {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .item-details p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        .delete-button {
+            background-color: #dc3545;
+            width: 20px;
+            height: 20px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: white;
+        }
+
+        .total-section {
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .total-section p {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        button.pay-button {
+            margin-top: 20px; 
+            background-color: #28a745; 
+            color: white; 
+            border: none; 
+            padding: 10px; 
+            border-radius: 5px; 
+            cursor: pointer;
+            width: 100%;
+        }
+         .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-left: 10px;
+        }
+
+        .quantity-btn {
+            background-color: #007bff;
+            color: white;
+            font-size: 18px;
+            border: none;
+            padding: 5px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .quantity-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .quantity {
+            font-size: 18px;
+            font-weight: bold;
+            min-width: 30px;
+            text-align: center;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .delete-button {
+            background-color: #dc3545;
+            width: 25px;
+            height: 25px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: white;
+            margin-left: 20px;
+        }
+
+        .delete-button:hover {
+            background-color: #c82333;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Métodos de pago -->
+        <div class="left-section">
+            <h2>Métodos de Pago</h2>
+            <div class="payment-methods">
+                <div class="payment-method" id="credit-card">
+                    <img src="Imagenes/credito.png" alt="Crédito">
+                    <span>Crédito</span>
+                </div>
+                <div class="payment-method" id="debit-card">
+                    <img src="Imagenes/debito.png" alt="Débito">
+                    <span>Débito</span>
+                </div>
+                <div class="payment-method" id="paypal">
+                    <img src="Imagenes/paypal.png" alt="PayPal">
+                    <span>PayPal</span>
+                </div>
+            </div>
+
+            <!-- Formulario de tarjeta de crédito -->
+            <div class="form-section" id="credit-card-form">
+                <input type="text" id="card-number" placeholder="Número de tarjeta">
+                <input type="text" id="card-holder" placeholder="Nombre en la tarjeta">
+                <div style="display: flex; gap: 10px;">
+                    <input type="text" id="card-expiry" placeholder="MM/AA" style="flex: 1;">
+                    <input type="text" id="card-cvv" placeholder="CVV" style="flex: 1;">
+                </div>
+                <button class="pay-button" id="pay-credit-button">Finalizar Compra</button>
+            </div>
+
+            <!-- Formulario de tarjeta de débito -->
+            <div class="form-section" id="debit-card-form">
+                <input type="text" id="debit-card-number" placeholder="Número de tarjeta">
+                <input type="text" id="debit-card-holder" placeholder="Nombre en la tarjeta">
+                <input type="text" id="debit-bank" placeholder="Banco">
+                <button class="pay-button" id="pay-debit-button">Finalizar Compra</button>
+            </div>
+
+            <!-- Formulario de PayPal -->
+            <div class="form-section" id="paypal-form">
+                <input type="email" id="paypal-email" placeholder="Correo electrónico de PayPal">
+                <button class="pay-button" id="pay-paypal-button">Finalizar Compra</button>
+            </div>
+        </div>
+
+        <!-- Carrito de compras -->
+        <div class="right-section">
+            <h1>Carrito de Compras</h1>
+            <div id="cart-items"></div>
+            <div class="total-section">
+                <p>Total: $<span id="total-price">0.00</span></p>
+            </div>
+        </div>
+    </div>
+
+     <script>
+        document.getElementById('credit-card').addEventListener('click', function() {
+            showPaymentForm('credit-card-form');
+        });
+
+        document.getElementById('debit-card').addEventListener('click', function() {
+            showPaymentForm('debit-card-form');
+        });
+
+        document.getElementById('paypal').addEventListener('click', function() {
+            showPaymentForm('paypal-form');
+        });
+
+        function showPaymentForm(formId) {
+            const forms = document.querySelectorAll('.form-section');
+            forms.forEach(form => form.style.display = 'none');
+            const selectedForm = document.getElementById(formId);
+            selectedForm.style.display = 'block';
+        }
+
+        async function fetchCart() {
+            const response = await fetch('servidor.php');
+            const data = await response.json();
+            renderCart(data.items);
+        }
+
+        function updateTotal(cart) {
+            const total = cart.reduce((sum, item) => sum + item.precio * item.cantidad, 0);
+            document.getElementById('total-price').innerText = total.toFixed(2);
+        }
+
+        function renderCart(cart) {
+            const cartItemsContainer = document.getElementById('cart-items');
+            cartItemsContainer.innerHTML = '';
+            cart.forEach(item => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
+                    <img src="${item.imagen}" alt="${item.nombre}">
+                    <div class="item-details">
+                        <h3>${item.nombre}</h3>
+                        <p>$${item.precio} x ${item.cantidad}</p>
+                    </div>
+                    <div class="quantity-controls">
+                        <button class="quantity-btn" data-id="${item.producto_id}" data-action="decrease">-</button>
+                        <span class="quantity">${item.cantidad}</span>
+                        <button class="quantity-btn" data-id="${item.producto_id}" data-action="increase">+</button>
+                    </div>
+                    <button class="delete-button" data-id="${item.producto_id}">✕</button>
+                `;
+                cartItemsContainer.appendChild(cartItem);
+            });
+
+            document.querySelectorAll('.delete-button').forEach(button => {
+                button.addEventListener('click', async function () {
+                    const productId = this.dataset.id;
+                    await fetch('servidor.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ action: 'delete', product_id: productId })
+                    });
+                    fetchCart();
+                });
+            });
+
+            document.querySelectorAll('.quantity-btn').forEach(button => {
+                button.addEventListener('click', async function () {
+                    const productId = this.dataset.id;
+                    const action = this.dataset.action;
+                    const quantityElement = this.closest('.cart-item').querySelector('.quantity');
+                    let currentQuantity = parseInt(quantityElement.innerText);
+
+                    if (action === 'increase') {
+                        currentQuantity++;
+                    } else if (action === 'decrease' && currentQuantity > 1) {
+                        currentQuantity--;
+                    }
+
+                    // Actualizar la cantidad en el servidor
+                    const response = await fetch('servidor.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ action: 'update', product_id: productId, quantity: currentQuantity })
+                    });
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                        quantityElement.innerText = currentQuantity;
+                        fetchCart();  // Actualizar el carrito y total
+                    } else {
+                        alert(result.message);
+                    }
+                });
+            });
+
+            updateTotal(cart);
+        }
+
+       // Función que se ejecuta al hacer clic en los botones de pago
+async function handlePayment(method) {
+    const totalPrice = document.getElementById('total-price').innerText;
+
+    // Aseguramos que los datos del formulario sean válidos
+    let paymentData = {};
+    let valid = true;
+
+    if (method === 'credit-card') {
+        // Validar los campos de tarjeta de crédito
+        paymentData = {
+            cardNumber: document.getElementById('card-number').value,
+            cardHolder: document.getElementById('card-holder').value,
+            expiry: document.getElementById('card-expiry').value,
+            cvv: document.getElementById('card-cvv').value
+        };
+
+        // Comprobar que los campos no estén vacíos
+        if (!paymentData.cardNumber || !paymentData.cardHolder || !paymentData.expiry || !paymentData.cvv) {
+            alert('Por favor, complete todos los campos de la tarjeta de crédito');
+            valid = false;
+        }
+    } else if (method === 'debit-card') {
+        // Validar los campos de tarjeta de débito
+        paymentData = {
+            debitCardNumber: document.getElementById('debit-card-number').value,
+            debitCardHolder: document.getElementById('debit-card-holder').value,
+            debitBank: document.getElementById('debit-bank').value
+        };
+
+        if (!paymentData.debitCardNumber || !paymentData.debitCardHolder || !paymentData.debitBank) {
+            alert('Por favor, complete todos los campos de la tarjeta de débito');
+            valid = false;
+        }
+    } else if (method === 'paypal') {
+        // Validar el campo de PayPal
+        paymentData = {
+            paypalEmail: document.getElementById('paypal-email').value
+        };
+
+        if (!paymentData.paypalEmail) {
+            alert('Por favor, ingrese su correo de PayPal');
+            valid = false;
+        }
+    }
+
+    if (!valid) {
+        return; // Detener la ejecución si los datos no son válidos
+    }
+
+    // Enviar la solicitud al servidor para procesar el pago
+    const response = await fetch('servidor.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            action: 'pay',
+            method,
+            data: paymentData,
+            total: totalPrice
+        })
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+        alert('Pago realizado con éxito. ¡Gracias por tu compra!');
+        location.reload(); // Recargar la página para vaciar el carrito
+    } else {
+        alert('Error en el pago: ' + result.message);
+    }
+}
+
+// Agregar eventos a los botones de pago
+document.getElementById('pay-credit-button').addEventListener('click', function() {
+    handlePayment('credit-card');
+});
+
+document.getElementById('pay-debit-button').addEventListener('click', function() {
+    handlePayment('debit-card');
+});
+
+document.getElementById('pay-paypal-button').addEventListener('click', function() {
+    handlePayment('paypal');
+});
+
+
+
+        fetchCart();
+    </script>
+</body>
+</html>

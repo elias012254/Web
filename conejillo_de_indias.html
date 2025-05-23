@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vinos</title>
+    <link rel="stylesheet" type="text/css" href="CSS/cabeceras.css">
+    <style>
+        /* Estilos para la barra desplegable */
+        .menu-dropdown {
+            position: relative; /* Para posicionar el menú desplegable */
+        }
+
+        .menu-dropdown ul {
+            display: none; /* Ocultar el menú por defecto */
+            position: absolute; /* Para que se posicione correctamente */
+            top: 100%; /* Coloca el menú debajo del enlace */
+            left: 0; /* Alinear al lado izquierdo */
+            background-color: #63010e; /* Fondo blanco */
+            border: 1px solid #ccc; /* Borde */
+            z-index: 1000; /* Asegura que esté por encima de otros elementos */
+            width: 150px; /* Ancho del menú desplegable */
+            padding: 10px 0; /* Espaciado interno */
+            list-style: none; /* Sin puntos */
+        }
+
+        .menu-dropdown:hover ul {
+            display: block; /* Mostrar menú al pasar el mouse */
+        }
+
+        .menu-dropdown li {
+            padding: 15px 12px; /* Espaciado interno (15px entre opciones) */
+        }
+
+        .menu-dropdown li a {
+            color: #000; /* Color negro del texto */
+            text-decoration: none; /* Sin subrayado */
+            font-size: 12px; /* Tamaño de fuente más pequeño */
+        }
+
+        .menu-dropdown li:hover {
+            background-color: #870517; /* Color de fondo al pasar el mouse */
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="top-bar">
+        <div class="menu">
+            <ul>
+                <li><a href="index.html">Tienda</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="asistencia.html">Whatsapp</a></li>
+                <li class="menu-dropdown">
+                    <a href="ayuda.html">Ayuda ▼</a>
+                    <ul>
+                        <li><a href="opcion1.html">Opción 1</a></li><br>
+                        <li><a href="opcion2.html">Opción 2</a></li><br>
+                        <li><a href="opcion3.html">Opción 3</a></li><br>
+                        <li><a href="opcion4.html">Opción 4</a></li><br>
+                        <li><a href="opcion5.html">Opción 5</a></li><br>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="logo">
+            <img src="Imagenes/logo.png">
+            <div class="company-name">
+                <p class="name">Four/Twenty</p>
+                <p class="corporation">CORPORATION</p>
+            </div>
+        </div>
+        <div class="user-actions">
+            <a href="login.html"><img src="Imagenes/icon.png" alt="Login" class="icon"></a>
+            <a href="carrito.html"><img src="Imagenes/carrito.png" alt="Carrito" class="icon"></a>
+        </div>
+    </div>
+</header>
+<table border="0" cellpadding="5" cellspacing="5" align="center" width="80%">
+    <tr>
+        <td align="center">
+            <div class="gallery-item">
+                <img src="Imagenes/image3.jpg" alt="Imagen 2">
+                <div class="circle">
+                    <a href="image1.html"><img src="Imagenes/circle1.jpg" alt="Circle 1"></a>
+                </div>
+            </div>
+        </td>
+        <td align="center">
+            <div class="gallery-item">
+                <img src="Imagenes/image3.jpg" alt="Imagen 2">
+                <div class="circle">
+                    <a href="image1.html"><img src="Imagenes/circle1.jpg" alt="Circle 1"></a>
+                </div>
+            </div>
+        </td>
+        <td align="center">
+            <div class="gallery-item">
+                <img src="Imagenes/image3.jpg" alt="Imagen 2">
+                <div class="circle">
+                    <a href="image1.html"><img src="Imagenes/circle1.jpg" alt="Circle 1"></a>
+                </div>
+            </div>
+        </td>
+        <td align="center">
+            <div class="gallery-item">
+                <img src="Imagenes/image3.jpg" alt="Imagen 2">
+                <div class="circle">
+                    <a href="image1.html"><img src="Imagenes/circle1.jpg" alt="Circle 1"></a>
+                </div>
+            </div>
+        </td>
+        <tr>
+        <td align="center">
+            <div class="gallery-item">
+                <img src="Imagenes/image3.jpg" alt="Imagen 2">
+                <div class="circle">
+                    <a href="image1.html"><img src="Imagenes/circle1.jpg" alt="Circle 1"></a>
+                </div>
+            </div>
+        </td>
+        <td align="center">
+            <div class="gallery-item">
+                <img src="Imagenes/image3.jpg" alt="Imagen 2">
+                <div class="circle">
+                    <a href="image1.html"><img src="Imagenes/circle1.jpg" alt="Circle 1"></a>
+                </div>
+            </div>
+        </td>
+        <td align="center">
+            <div class="gallery-item">
+                <img src="Imagenes/image3.jpg" alt="Imagen 2">
+                <div class="circle">
+                    <a href="image1.html"><img src="Imagenes/circle1.jpg" alt="Circle 1"></a>
+                </div>
+            </div>
+        </td>
+        <td align="center">
+            <div class="gallery-item">
+                <img src="Imagenes/image3.jpg" alt="Imagen 2">
+                <div class="circle">
+                    <a href="image1.html"><img src="Imagenes/circle1.jpg" alt="Circle 1"></a>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<p></p>
+<center>
+    <a href="cat_vinos.html"><button type="button" class="btn btn-link">1</button></a>
+    <a href="cat_vinos2.html"><button type="button" class="btn btn-link">2</button></a>
+    <a href="cat_vinos3.html"><button type="button" class="btn btn-link">3</button></a>&nbsp;&nbsp;&nbsp;
+    <a href="cat_vinos2.html"><button type="button" class="btn btn-primary">Next</button></a>
+</center>
+
+</body>
+</html>
