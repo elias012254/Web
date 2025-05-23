@@ -1,0 +1,109 @@
+body {
+    font-family: Verdana, sans-serif;
+    margin: 0;
+}
+
+.active {
+    background-color: #9b0303 !important; /* Color activo */
+}
+
+form {
+    border: none;
+    padding: 10px 20px; /* Simplificado para que sea más responsivo */
+    max-width: 600px; /* Ancho máximo para el formulario */
+    margin: auto; /* Centrar el formulario */
+}
+
+input[type=text], input[type=password], input[type=date], input[type=tel], input[type=email], select {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 8px 0;
+    border: 2px solid #ccc;
+    border-radius: 4px; /* Bordes redondeados */
+    box-sizing: border-box;
+}
+
+input[type=number] {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 8px 0;
+    border: 2px solid #ccc;
+    border-radius: 4px; /* Bordes redondeados */
+    box-sizing: border-box;
+}
+
+input[type=file] {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 8px 0;
+    border: 2px solid #ccc;
+    border-radius: 4px; /* Bordes redondeados */
+    box-sizing: border-box;
+    background-color: white; /* Color de fondo para el input de archivos */
+}
+
+button {
+    background-color: #ab0303;
+    color: white;
+    padding: 14px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 4px; /* Bordes redondeados para los botones */
+}
+
+button:hover {
+    background-color: #9b0303; /* Color más claro al pasar el ratón */
+}
+
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #ab0303;
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+.container {
+    padding: 16px;
+}
+
+/* Estilos de tabla */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9; /* Color alternativo para filas */
+}
+
+th {
+    background-color: gray;
+    color: lightgray;
+}
+
+/* Ajustes responsivos */
+@media only screen and (max-width: 600px) {
+    form {
+        padding: 10px; /* Menos padding en pantallas pequeñas */
+    }
+
+    .icon-bar {
+        flex-direction: column; /* Cambio a columna en pantallas pequeñas */
+    }
+
+    .icon-bar a {
+        font-size: 24px; /* Tamaño de fuente más pequeño */
+    }
+}

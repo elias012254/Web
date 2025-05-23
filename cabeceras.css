@@ -1,0 +1,341 @@
+body {
+    font-family: 'Patua One', sans-serif; /* Cambia la fuente globalmente */
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+header {
+    background-color: #63010e;
+    color: white;
+    padding: 10px 20px;
+}
+
+
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu {
+    display: flex;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.texts{
+    text-align: left;
+}
+.texts .text1{
+font-family: 'Rockwell', serif;
+margin: 0;
+font-size: 16px;
+}
+
+.company-name {
+    text-align: left;
+}
+
+.company-name .name {
+    font-family: 'Bickham Script Pro', cursive;
+    font-size: 24px;
+    margin: 0;
+}
+
+.company-name .corporation {
+    font-family: 'Rockwell', serif;
+    font-size: 12px;
+    margin: 0;
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+}
+
+.user-actions .icon {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    vertical-align: middle;
+
+
+}
+.carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    margin: auto;
+}
+
+.carousel-wrapper {
+    display: flex;
+    overflow: hidden;
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.carousel-item img {
+    width: 100%;
+    display: block;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.indicator {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+    display: inline-block;
+    margin: 0 4px;
+    cursor: pointer;
+}
+
+.indicator.active {
+    background-color: white;
+}
+ /* Estilos específicos para la galería de imágenes */
+.image-gallery {
+    position: relative;
+    width: 80%; /* Ajusta el ancho del carrusel */
+    margin: auto;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+.gallery-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-images {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item {
+    flex: 1 0 25%; /* Muestra 4 imágenes al mismo tiempo */
+    box-sizing: border-box;
+    padding: 5px;
+    position: relative;
+}
+
+.gallery-item img {
+    width: 200px; /* Asegura que las imágenes tengan 200px de ancho */
+    height: 200px; /* Asegura que las imágenes tengan 200px de alto */
+    border-radius: 8px;
+    object-fit: cover; /* Ajusta las imágenes para que cubran el área sin deformarse */
+    display: block;
+    margin: 0 auto; /* Centra las imágenes en el contenedor */
+}
+
+.circle {
+    position: absolute;
+    bottom: -10px; /* Ajusta el espacio entre la imagen y el círculo */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px; /* Tamaño del círculo */
+    height: 60px;
+    overflow: hidden;
+    border-radius: 50%;
+    background-color: #fff; /* Fondo del círculo */
+    border: 2px solid #000; /* Borde del círculo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.nav-btn {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.btn-link {
+  font-weight: 400;
+  color: #007bff;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-decoration: underline;
+}
+
+.btn-link:hover {
+  color: #0056b3;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.btn-link:focus, .btn-link.focus {
+  box-shadow: none;
+}
+  .btn-primary {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #0056b3;
+  border-color: #004085;
+}
+#sendWhatsApp {
+            color: white; /* Color del texto */
+            padding: 10px 15px; /* Espaciado interno */
+            text-decoration: none; /* Quitar subrayado */
+            border-radius: 5px; /* Bordes redondeados */
+            font-weight: bold; /* Texto en negrita */
+        }
+.texts {
+    text-align: center; /* Centra el texto */
+}
+
+.text1 {
+    font-size: 35px !important;/* Tamaño del texto */
+    font-family: 'Patua One', sans-serif !important; /* Cambia la fuente */
+    font-weight: bold !important; /* Aplica negrita */
+}
+
+.separator {
+    border: 0; /* Elimina el borde predeterminado */
+    height: 15px; /* Grosor de la línea */
+    background-color: #9d5bec; /* Color gris para la línea */
+    margin: 10px auto; /* Margen para separar de los elementos */
+    width: 80%; /* Ancho de la línea, ajusta según necesites */
+}
+.custom-gallery-container {
+    display: flex;
+    justify-content: center; /* Centra los recuadros en la página */
+    gap: 20px; /* Espacio entre los recuadros */
+}
+
+.custom-gallery-item {
+    width: 120px;
+    height: 250px; /* Aumenta la altura */
+    border: 1px solid #ccc; /* Borde de los recuadros */
+    border-radius: 8px; /* Esquinas redondeadas */
+    overflow: hidden; /* Oculta el desbordamiento */
+    text-align: center; /* Centra el texto */
+    background-color: #fff; /* Fondo blanco para los recuadros */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    padding: 10px; /* Espaciado interno */
+}
+
+.custom-gallery-image {
+    width: 100px;
+    height: 100px; /* Aumenta la altura de la imagen */
+    object-fit: cover; /* Mantiene la proporción de la imagen */
+    border-radius: 4px; /* Esquinas redondeadas para la imagen */
+}
+
+.custom-gallery-title {
+    font-size: 16px;
+    margin: 10px 0 5px; /* Ajusta el margen */
+}
+
+.custom-gallery-info {
+    font-size: 12px;
+    margin: 5px 0; /* Margen superior e inferior */
+}
+
+.custom-gallery-link {
+    display: block; /* Hace que el enlace ocupe todo el ancho */
+    margin-top: 10px; /* Espaciado superior */
+    color: blue; /* Color del enlace */
+    text-decoration: none; /* Sin subrayado */
+}
+
+.custom-gallery-link:hover {
+    text-decoration: underline; /* Subrayado al pasar el mouse */
+}

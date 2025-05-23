@@ -1,0 +1,252 @@
+/* Estilos generales */
+body {
+    font-family: 'Akaya Telivigala', sans-serif;
+    margin: 0;
+    background-color: #8c8c8c; /* Gris claro para toda la página */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Para evitar el scroll si el elemento está fuera del contenedor */
+}
+
+.container {
+    width: 1200px; /* Largo del recuadro grande */
+    height: 500px;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más fuerte */
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    transition: box-shadow 0.3s; /* Transición para el cambio de sombra */
+}
+
+.container:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Resplandor más intenso */
+}
+
+.header {
+    width: 400px; /* Ancho del recuadro de la izquierda */
+    border-right: 2px solid #a0a0a0; /* Línea grisácea más fuerte en el borde derecho del recuadro de 400px */
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinear a la izquierda */
+    position: relative;
+    transition: box-shadow 0.3s; /* Transición para el cambio de sombra */
+}
+
+.header:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Resplandor al pasar el mouse */
+}
+
+.header::before {
+    content: "";
+    display: block;
+    width: 1120px; /* Ancho reducido para que no sobresalga del recuadro grande */
+    height: 2px;
+    background-color: #a0a0a0; /* Línea grisácea más fuerte */
+    position: absolute;
+    top: 40px; /* Separación de 40px desde el borde superior del recuadro grande */
+    left: 20px; /* Ajustado para cubrir desde el borde izquierdo del recuadro de 400px */
+}
+
+.header img {
+    width: 50px; /* Tamaño del logo */
+    height: 50px;
+    margin-top: 80px; /* Espacio aumentado para que la línea grisácea quede en la parte superior del logo */
+    margin-bottom: 20px; /* Espacio debajo del logo */
+}
+
+.title {
+    font-size: 48px; /* Tamaño ajustado a 48px para mantener la legibilidad y orientación */
+    font-weight: bold;
+    color: #C8102E; /* Color vino para el título */
+    margin-top: 20px; /* Espacio debajo del logo */
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - 420px); /* Ancho restante después del área de 400px */
+    padding-left: 20px;
+}
+
+.login-options {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px; /* Separación vertical de 50px entre los botones */
+    width: 700px;
+}
+
+.login-options a button {
+    width: 500px; /* Largo de los botones */
+    height: 80px; /* Alto de los botones */
+    font-size: 1.2em; /* Tamaño de fuente 1.2 veces el normal */
+    font-family: 'Akaya Telivigala', serif; /* Fuente Akaya Telivigala */
+    font-weight: bold; /* Fuente en negritas */
+    padding: 10px;
+    border: 1px solid #bbb; /* Borde de los botones más oscuro */
+    border-radius: 20px;
+    background-color: #fff;
+    color: #C8102E; /* Color vino para el texto del botón */
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s; /* Transición para el cambio de color y sombra */
+    text-align: center;
+}
+
+.login-options a button:hover {
+    background-color: #f8d7da; /* Color claro al pasar el mouse */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Resplandor al pasar el mouse */
+}
+
+.line-top {
+    position: absolute;
+    top: 0; /* Ubicación en la parte superior del recuadro grande */
+    left: 20px; /* Alineación desde el borde izquierdo del recuadro grande */
+    width: calc(1200px - 40px); /* Ancho reducido para ajustarse dentro del recuadro grande */
+    height: 2px; /* Grosor de la línea */
+    background-color: #a0a0a0; /* Color grisáseo más fuerte de la línea */
+    z-index: 1; /* Asegurarse de que esté por encima del contenido */
+}
+
+.line-right {
+    position: absolute;
+    top: 0; /* Ubicación en la parte superior del recuadro grande */
+    right: 0;
+    width: 2px; /* Grosor de la línea */
+    height: 100%; /* Altura completa del recuadro grande */
+    background-color: #a0a0a0; /* Color grisáseo más fuerte de la línea */
+    z-index: 1; /* Asegurarse de que esté por encima del contenido */
+}
+
+/* Nueva sección para el logo2 y el texto */
+.header-top {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 8px; /* Separación desde el borde superior del recuadro grande */
+    left: 20px; /* Alineación desde el borde izquierdo del recuadro grande */
+    width: calc(1200px - 40px); /* Asegura que se mantenga dentro del recuadro grande */
+    height: 30px; /* Altura del área de la línea y el logo */
+    z-index: 1; /* Asegurarse de que esté por encima del contenido */
+}
+
+.header-top img {
+    width: 30px; /* Tamaño del nuevo logo */
+    height: 30px;
+    margin-right: 8px; /* Espacio entre el logo y el texto */
+    margin-top: calc(50% - 560px); /* Ajustar para centrar verticalmente el logo en el contenedor de 30px de altura */
+}
+
+.header-top .text {
+    font-size: 20px; /* Tamaño de fuente para el texto */
+    font-family: 'Akaya Telivigala', sans-serif; /* Fuente para el texto */
+    line-height: 30px; /* Alineación vertical del texto en relación con el logo */
+    color: #C8102E; /* Color vino para el texto del header-top */
+}
+
+/* Estilos específicos del formulario de inicio de sesión */
+.login-box {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+.logo {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #C8102E; /* Color vino para el texto del título del formulario */
+}
+
+.textbox {
+    margin-bottom: 15px;
+}
+
+.textbox input, .textbox select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.checkbox input {
+    margin-right: 10px;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #C8102E; /* Color vino para el fondo del botón */
+    color: #fff; /* Color blanco para el texto del botón */
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #a71d2a; /* Vino más oscuro al pasar el mouse */
+}
+
+.footer {
+    margin-top: 20px;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.link {
+    color: #C8102E; /* Color vino para los enlaces */
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+/* Nueva sección para la clase terms */
+.terms {
+    position: fixed;
+    bottom: 80px; /* Espacio desde la parte inferior del navegador */
+    left: 50%;
+    transform: translateX(-50%); /* Centrar horizontalmente */
+    font-size: 0.9em;
+    color: #C8102E; /* Color vino para el enlace */
+    z-index: 2; /* Asegurarse de que esté por encima del contenido del contenedor */
+}
+
+.terms a {
+    color: #C8102E; /* Color vino para el enlace */
+    text-decoration: none;
+    transition: color 0.3s; /* Transición para el cambio de color del enlace */
+}
+
+.terms a:hover {
+    color: #a71d2a; /* Vino más oscuro al pasar el mouse */
+    text-decoration: underline;
+}
